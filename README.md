@@ -1,2 +1,3 @@
 # FunctionalProgramming
-kotlin的函数式编程（FunctionalProgramming）
+kotlin的函数式编程（FunctionalProgramming）使用示例：
+1 java回调代替
