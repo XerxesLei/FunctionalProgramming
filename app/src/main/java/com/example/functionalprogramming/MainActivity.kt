@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
                 repeatMode = Animation.REVERSE
                 fillAfter = true
             })
-
             text.animate().setDuration(1000)
                 .translationX(a++)
                 .translationY(a++)
