@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         var a = 1f
         text.setOnClickListener {
             println("text click")
+            //点击事件失效
             text.startAnimation(TranslateAnimation(-100f,100f, -100f, 100f).apply {
                 duration = 1000
                 repeatMode = Animation.REVERSE
