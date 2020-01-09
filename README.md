@@ -10,7 +10,8 @@ kotlin的函数式编程（FunctionalProgramming）使用示例:
 -----------------------------
 # 模块化 插件化 组件化  
 # AMS   
-![带logo社交样式](https://img.shields.io/badge/GitHub-10k+-yellow.svg?style=social&logo=github)
+![正常大小的圆角矩形](https://img.shields.io/badge/language-swift-green.svg)
+![带logo社交样式](https://img.shields.io/badge/GitHub-12k+-yellow.svg?style=social&logo=github)
 [![](https://img.shields.io/badge/License%20-Apache%202-337ab7.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![License](https://img.shields.io/badge/License%20-Apache%202-337ab7.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Arsenal](https://img.shields.io/badge/Arsenal%20-%20SmartRefresh-4cae4c.svg)](https://android-arsenal.com/details/1/6001)
