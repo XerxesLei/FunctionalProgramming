@@ -13,5 +13,6 @@ public class java {
         }
 
         System.out.println(li);
+        System.out.println(java.class.getResource(""));
     }
 }
