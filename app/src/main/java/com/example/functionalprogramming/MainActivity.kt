@@ -14,20 +14,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-  //      var a = 1f
-//        text.setOnClickListener {
-//            println("text click")
-//            //点击事件失效
-//            text.startAnimation(TranslateAnimation(-100f,100f, -100f, 100f).apply {
-//                duration = 1000
-//                repeatMode = Animation.REVERSE
-//                fillAfter = true
-//            })
-//            text.animate().setDuration(1000)
-//                .translationX(a++)
-//                .translationY(a++)
-//                .start()
-//        }
+        var a = 1f
+        text.setOnClickListener {
+            println("text click")
+            //点击事件失效
+            text.startAnimation(TranslateAnimation(-100f,100f, -100f, 100f).apply {
+                duration = 1000
+                repeatMode = Animation.REVERSE
+                fillAfter = true
+            })
+            text.animate().setDuration(1000)
+                .translationX(a++)
+                .translationY(a++)
+                .start()
+        }
 //
 //        FunctionalProgramming.setFunctionalProgramming {
 //            println("FunctionalProgramming is run")
