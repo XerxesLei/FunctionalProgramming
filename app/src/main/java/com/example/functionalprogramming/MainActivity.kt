@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                     println(it.processName)
                     println(it.packageName)
                     var intent = Intent()
-                    var co = ComponentName(it.packageName, it.packageName.plus(".MainActivity"))
+                    var co = ComponentName(it.packageName, it.packageName.plus(".SecondActivity"))
                     intent.setComponent(co)
                     startActivity(intent)
                 }
