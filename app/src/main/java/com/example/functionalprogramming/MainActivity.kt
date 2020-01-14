@@ -1,6 +1,7 @@
 package com.example.functionalprogramming
 
 import android.app.Application
+import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +27,19 @@ class MainActivity : AppCompatActivity() {
         var a = 1f
         text.setOnClickListener {
             println("text click")
-            startActivity(Intent(this, MainActivity1::class.java))
+            var s = packageManager.getInstalledApplications(0)
+            s.forEach {
+                if (it.packageName == "com.example.testmodule") {
+                    println(it.className)
+                    println(it.processName)
+                    println(it.packageName)
+                    var intent = Intent()
+                    var co = ComponentName(it.packageName, it.packageName.plus(".MainActivity"))
+                    intent.setComponent(co)
+                    startActivity(intent)
+                }
+            }
+            //startActivity(Intent(this, MainActivity1::class.java))
             //点击事件失效
 //            text.startAnimation(TranslateAnimation(-100f,100f, -100f, 100f).apply {
 //                duration = 1000
