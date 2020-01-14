@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':testmodule', ':testlibary', ':testlib'
 rootProject.name='FunctionalProgramming'

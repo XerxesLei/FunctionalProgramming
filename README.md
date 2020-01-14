@@ -42,3 +42,5 @@ protected void onDestroy() {
                 .start()
         }
 ```
+
+# 多个Apk 组成一个超级App
