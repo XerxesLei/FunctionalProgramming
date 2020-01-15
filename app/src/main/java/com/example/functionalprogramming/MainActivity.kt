@@ -2,8 +2,11 @@ package com.example.functionalprogramming
 
 import android.app.Application
 import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -24,21 +27,34 @@ class MainActivity : AppCompatActivity() {
 //        mViewPager2.apply {
 //            adapter = Adapter()
 //        }
+        val mServiceConnection = object : ServiceConnection {
+            override fun onServiceDisconnected(name: ComponentName?) {
+                println("service disconnected")
+            }
+
+            override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+                println("service connected")
+            }
+
+        }
         var a = 1f
         text.setOnClickListener {
-            println("text click")
-            var s = packageManager.getInstalledApplications(0)
-            s.forEach {
-                if (it.packageName == "com.example.testmodule") {
-                    println(it.className)
-                    println(it.processName)
-                    println(it.packageName)
-                    var intent = Intent()
-                    var co = ComponentName(it.packageName, it.packageName.plus(".SecondActivity"))
-                    intent.setComponent(co)
-                    startActivity(intent)
-                }
-            }
+            val intent = Intent(this, RemoteService::class.java)
+            bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE)
+
+//            println("text click")
+//            var s = packageManager.getInstalledApplications(0)
+//            s.forEach {
+//                if (it.packageName == "com.example.testmodule") {
+//                    println(it.className)
+//                    println(it.processName)
+//                    println(it.packageName)
+//                    var intent = Intent()
+//                    var co = ComponentName(it.packageName, it.packageName.plus(".SecondActivity"))
+//                    intent.setComponent(co)
+//                    startActivity(intent)
+//                }
+//            }
             //startActivity(Intent(this, MainActivity1::class.java))
             //点击事件失效
 //            text.startAnimation(TranslateAnimation(-100f,100f, -100f, 100f).apply {
