@@ -34,27 +34,31 @@ class MainActivity : AppCompatActivity() {
 
             override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
                 println("service connected")
+                var  m = IMyAidlInterface.Stub.asInterface(service)
+                m.basicTypes()
             }
 
         }
         var a = 1f
         text.setOnClickListener {
-            val intent = Intent(this, RemoteService::class.java)
-            bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE)
+//            val intent = Intent(this, RemoteService::class.java)
+//            bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE)
 
-//            println("text click")
-//            var s = packageManager.getInstalledApplications(0)
-//            s.forEach {
-//                if (it.packageName == "com.example.testmodule") {
-//                    println(it.className)
-//                    println(it.processName)
-//                    println(it.packageName)
-//                    var intent = Intent()
-//                    var co = ComponentName(it.packageName, it.packageName.plus(".SecondActivity"))
-//                    intent.setComponent(co)
-//                    startActivity(intent)
-//                }
-//            }
+            println("text click")
+            val s = packageManager.getInstalledApplications(0)
+            s.forEach {
+                if (it.packageName == "com.example.testmodule") {
+                    println(it.className)
+                    println(it.processName)
+                    println(it.packageName)
+                    var intent = Intent()
+                    var co = ComponentName(it.packageName, it.packageName.plus(".MyService"))
+                    intent.component = co
+                    //startActivity(intent)
+                    startService(intent)
+                    bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE)
+                }
+            }
             //startActivity(Intent(this, MainActivity1::class.java))
             //点击事件失效
 //            text.startAnimation(TranslateAnimation(-100f,100f, -100f, 100f).apply {

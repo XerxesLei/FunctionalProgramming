@@ -14,13 +14,20 @@ class RemoteService : Service() {
     }
     override fun onBind(intent: Intent?): IBinder? {
         Log.d(TAG, "onBind")
-        return mBinder
+        return binder
     }
 
     var mBinder = object : Binder() {
 
         fun doSomething() {
             Log.d(TAG, "doSomething")
+        }
+
+    }
+
+    private val binder = object : IMyAidlInterface.Stub() {
+        override fun basicTypes() {
+            println("111111111111")
         }
 
     }
