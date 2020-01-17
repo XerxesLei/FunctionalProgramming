@@ -40,36 +40,46 @@ class MainActivity : AppCompatActivity() {
 
         }
         var a = 1f
-        text.setOnClickListener {
-//            val intent = Intent(this, RemoteService::class.java)
-//            bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE)
+//        text.setOnClickListener {
+////            val intent = Intent(this, RemoteService::class.java)
+////            bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE)
+//
+//            println("text click")
+//            val s = packageManager.getInstalledApplications(0)
+//            s.forEach {
+//                if (it.packageName == "com.example.testmodule") {
+//                    try {
+//                        println(it.className)
+//                        println(it.processName)
+//                        var intent = Intent()
+//                        var co = ComponentName(it.packageName, it.packageName.plus(".MyService"))
+//                        intent.component = co
+//                        //startActivity(intent)
+//                        bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE)
+//                    } catch (e : Exception) {
+//                        println(e)
+//                    }
+//                    //bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE)
+//                }
+//            }
+//            //startActivity(Intent(this, MainActivity1::class.java))
+//            //点击事件失效
+////            text.startAnimation(TranslateAnimation(-100f,100f, -100f, 100f).apply {
+////                duration = 1000
+////                repeatMode = Animation.REVERSE
+////                fillAfter = true
+////            })
+////            text.animate().setDuration(1000)
+////                .translationX(a++)
+////                .translationY(a++)
+////                .start()
+//        }
 
-            println("text click")
-            val s = packageManager.getInstalledApplications(0)
-            s.forEach {
-                if (it.packageName == "com.example.testmodule") {
-                    println(it.className)
-                    println(it.processName)
-                    println(it.packageName)
-                    var intent = Intent()
-                    var co = ComponentName(it.packageName, it.packageName.plus(".MyService"))
-                    intent.component = co
-                    //startActivity(intent)
-                    startService(intent)
-                    bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE)
-                }
-            }
-            //startActivity(Intent(this, MainActivity1::class.java))
-            //点击事件失效
-//            text.startAnimation(TranslateAnimation(-100f,100f, -100f, 100f).apply {
-//                duration = 1000
-//                repeatMode = Animation.REVERSE
-//                fillAfter = true
-//            })
-//            text.animate().setDuration(1000)
-//                .translationX(a++)
-//                .translationY(a++)
-//                .start()
+        text.setOnClickListener {
+            val intent = Intent()
+            intent.action = "com.example.testmodule.cc"
+            intent.setPackage("com.example.testmodule")
+            startService(intent)
         }
 
         val testClass = TestClass()
