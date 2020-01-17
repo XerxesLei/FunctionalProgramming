@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.testmodule">
 
+    <permission
+        android:name="app.custom.permission"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="app.custom.permission" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,9 +17,11 @@
         <service
             android:name=".MyService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:permission="app.custom.permission">
             <intent-filter>
                 <action android:name="com.example.testmodule.cc"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
 
