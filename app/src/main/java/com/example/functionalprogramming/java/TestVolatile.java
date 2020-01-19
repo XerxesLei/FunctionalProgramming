@@ -6,17 +6,28 @@ public class TestVolatile {
     private static volatile int i = 0;
 
     public static void main(String[] args) {
+        new Thread(r1).start();
+        new Thread(r1).start();
+        new Thread(r1).start();
         new Thread(r).start();
-        new Thread(r).start();
-        new Thread(r).start();
-        new Thread(r).start();
-        System.out.println(i);
+        new Thread(r1).start();
+        new Thread(r1).start();
+        new Thread(r1).start();
     }
 
     private static Runnable r = new Runnable() {
         @Override
         public void run() {
+            System.out.println("修改值");
             i = 6;
+        }
+    };
+
+    private static Runnable r1 = new Runnable() {
+        @Override
+        public void run() {
+            System.out.println("读取值");
+            System.out.println(i);
         }
     };
 }
