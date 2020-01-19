@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.testmodule">
-    <permission android:name="com.example.testmodule"/>
-    <uses-permission android:name="com.example.testmodule"/>
+    package="com.example.remoteservice">
 
     <application
         android:allowBackup="true"
@@ -16,18 +14,9 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.example.functionalprogramming.cc"/>
+                <action android:name="com.example.functionalprogramming.cccc"/>
             </intent-filter>
         </service>
-
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".SecondActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

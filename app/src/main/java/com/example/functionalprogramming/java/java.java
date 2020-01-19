@@ -6,13 +6,21 @@ import java.util.List;
 public class java {
 
     public static void main(String[] args) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    System.out.println("1111111111");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
 
-        List li = new ArrayList<Integer>();
-        for (int i = 0; i < 100000; i++) {
-            li.add(i);
-        }
-
-        System.out.println(li);
-        System.out.println(java.class.getResource(""));
+        TestClass t = new TestClass();
+        TestClass.func();
     }
 }

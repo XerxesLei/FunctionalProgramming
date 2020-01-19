@@ -13,4 +13,10 @@ public class TestClass {
     public void setX(Float x) {
         this.x = x;
     }
+    public static void func(){
+        System.out.println("func");
+    }
+
+    class Ts extends TestClass{
+    }
 }

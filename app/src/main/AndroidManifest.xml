@@ -5,8 +5,6 @@
 
     <dist:module dist:instant="true" />
 
-    <uses-permission android:name="app.custom.permission" />
-
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

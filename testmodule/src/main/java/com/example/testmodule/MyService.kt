@@ -14,6 +14,17 @@ class MyService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         println("onStartCommand")
+        Thread(Runnable {
+            while (true) {
+                println("1111111111")
+                try {
+                    Thread.sleep(1000)
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+
+            }
+        }).start()
         return super.onStartCommand(intent, flags, startId)
     }
 
