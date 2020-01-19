@@ -78,5 +78,31 @@ public class TestSync {
                     }
                 }
         ).start();
+
+        new Thread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+//                        fun1();
+//                        testSync.fun3();
+                        testSync.fun2();
+                        testSync.fun4();
+                        testSync.fun5();
+                    }
+                }
+        ).start();
+
+        new Thread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+//                        fun1();
+//                        testSync.fun3();
+                        testSync.fun2();
+                        testSync.fun4();
+                        testSync.fun5();
+                    }
+                }
+        ).start();
     }
 }
