@@ -2,6 +2,8 @@ package com.example.functionalprogramming.java;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.function.Consumer;
+
 public class Sort {
 
     //冒泡排序
@@ -80,6 +82,11 @@ public class Sort {
             for (int j = i + 1; j > 0; j--) {
                 count++;
                 compare++;
+                /**
+                 * 1 当新插入的数 为整个数列中最小时 以下交换随着已排好的数组的增大而增大
+                 * 2 当新插入的数 为已排序好的数列中的最大时 不需要交换
+                 * 因此 插入排序对于有序数组性能最佳 而优化也从这里开始
+                 */
                 if (arr[j] < arr[j-1]) {
                     swap++;
                     temp = arr[j];
@@ -97,6 +104,43 @@ public class Sort {
 //        for (int value : arr) {
 //            System.out.print(value + " ");
 //        }
+    }
+
+    public static void shellSort(int[] a) {
+        int[] array = new int[a.length];
+        System.arraycopy(a,0, array, 0, a.length);
+        long count = 0, compare = 0, swap = 0;
+
+        long start = System.currentTimeMillis();
+
+        int lenth = array.length;
+        int temp = 0;
+        int incre = lenth;
+
+        do {
+            incre = incre / 2;
+            for (int k = 0; k < incre; k++) {    //根据增量分为若干子序列
+
+                for (int i = k + incre; i < lenth; i += incre) {
+
+                    for (int j = i; j > k; j -= incre) {
+                        count++;
+                        compare++;
+                        if (array[j] < array[j - incre]) {
+                            swap++;
+                            temp = array[j - incre];
+                            array[j - incre] = array[j];
+                            array[j] = temp;
+                        } else {
+                            break;
+                        }
+                    }
+                }
+            }
+        } while (incre != 1);
+        System.out.print("希尔排序耗时 :");
+        System.out.println(System.currentTimeMillis() - start);
+        System.out.printf("希尔排序遍历次数:%d---比较次数:%d---交换次数:%d%n", count, compare, swap);
     }
 
     private static void quickSortWrap(int[] a) {
@@ -159,6 +203,7 @@ public class Sort {
         bubbleSort(arr);
         selectSort(arr);
         insertSort(arr);
+        shellSort(arr);
         quickSortWrap(arr);
         times();
     }
