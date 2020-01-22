@@ -194,6 +194,11 @@ public class Sort {
         quickSort(a, i+1, r, c);//递归调用
     }
 
+    /**
+     * 总结 用最少的遍历和比较次数 尽早的放在目标位置
+     * 快速排序很直接的每次找出一个数放在目标位置
+     */
+
 
     public static void main(String[] args) {
         int[] arr = new int[10000];
